@@ -4,7 +4,7 @@ then
     echo "usage:$0 device"
     exit -1
 fi
-username=`users`
+username=`whoami`
 sudo umount /media/$username/$1
 sudo test -d /media/$username/$1
 if [ 0 -eq $? ]

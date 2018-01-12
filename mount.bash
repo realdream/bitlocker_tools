@@ -5,7 +5,7 @@
 decrypt_disk()
 {
     local device=$1
-    local username=`users`
+    local username=`whoami`
     mkdir ./$device
     sudo dislocker-fuse -V /dev/$device -u ./$device
     if [ $? -ne 0 ]
@@ -23,7 +23,7 @@ mount_disk()
 {
     # check if the mount point of decrypted filesystem exist
     local device=$1
-    local username=`users`
+    local username=`whoami`
     sudo test -d /media/$username/$device
     if [ 0 -eq $? ]
     then
@@ -43,7 +43,7 @@ then
     exit -1
 fi
 device=$1
-username=`users`
+username=`whoami`
 # check if it is decrypted 
 sudo test -e ./$device/dislocker-file
 if [ 0 -eq $? ]
