@@ -29,7 +29,7 @@ mount_disk()
     then
         sudo rm -r /media/$username/$device
     fi
-    sudo mkdir /media/$username/$device
+    sudo mkdir -p /media/$username/$device
     sudo chown $username:$username /media/$username/$device
     sudo mount -t auto -o uid=$username,gid=$username,dmask=022,fmask=133 ./$device/dislocker-file /media/$username/$device
     echo "decrypted disk: $device mounted!"
